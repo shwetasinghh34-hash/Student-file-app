@@ -22,8 +22,8 @@ public class StudentController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Student> getById(@PathVariable Long id) {
-        Student s = studentService.getById(id);
-        return s != null ? ResponseEntity.ok(s)
+        Student student = studentService.getById(id);
+        return student != null ? ResponseEntity.ok(student)
                          : ResponseEntity.notFound().build();
     }
 
@@ -34,8 +34,8 @@ public class StudentController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Student> update(
-            @PathVariable Long id, @RequestBody Student s) {
-        Student updated = studentService.update(id, s);
+            @PathVariable Long id, @RequestBody Student student) {
+        Student updated = studentService.update(id, student);
         return updated != null ? ResponseEntity.ok(updated)
                                : ResponseEntity.notFound().build();
     }
